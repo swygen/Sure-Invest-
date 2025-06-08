@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invest Sure BD – আপডেট</title>
+  <link rel="icon" href="https://www.gstatic.com/android/market_images/web/play_prism_hlock_2x.png" type="image/png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+    }
+    .dark-mode {
+      background-color: #0f172a;
+      color: white;
+    }
+    .light-mode {
+      background-color: #f9fafb;
+      color: black;
+    }
+  </style>
+</head>
+<body class="dark-mode transition-all duration-300">
+
+<div class="flex items-center justify-center min-h-screen px-4">
+  <div class="w-full max-w-md rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.postimg.cc/85rpNmcM/city-growth-finance-968957-19645.webp');">
+      <div class="w-full h-full bg-black/30 flex items-center justify-center">
+        <h1 class="text-2xl font-bold text-yellow-400 drop-shadow">INVEST SURE BD</h1>
+      </div>
+    </div>
+
+    <div class="glass p-6 space-y-6 text-center">
+      <h2 class="text-lg opacity-90">আপনার স্মার্ট ইনভেস্টমেন্ট অ্যাপ – এখন আরও উন্নত!</h2>
+
+      <div class="bg-white/10 rounded-xl p-4 text-left text-sm border border-white/10">
+        <h3 class="font-semibold text-yellow-300 mb-2">নতুন কী রয়েছে?</h3>
+        <ul class="space-y-2">
+          <li><span class="material-icons-outlined text-yellow-300 mr-2 align-middle">security</span> উন্নত সিকিউরিটি</li>
+          <li><span class="material-icons-outlined text-yellow-300 mr-2 align-middle">bolt</span> সুপার ফাস্ট পারফর্মেন্স</li>
+          <li><span class="material-icons-outlined text-yellow-300 mr-2 align-middle">analytics</span> ইনভেস্ট ড্যাশবোর্ড</li>
+          <li><span class="material-icons-outlined text-yellow-300 mr-2 align-middle">dark_mode</span> ডার্ক মোড সাপোর্ট</li>
+          <li><span class="material-icons-outlined text-yellow-300 mr-2 align-middle">palette</span> প্রিমিয়াম ডিজাইন</li>
+        </ul>
+      </div>
+
+      <div id="progressContainer" class="w-full bg-gray-700 rounded-full h-6 overflow-hidden hidden">
+        <div id="progressBar" class="bg-yellow-400 h-6 text-gray-900 text-sm font-bold text-center" style="width: 0%;">0%</div>
+      </div>
+
+      <button id="updateBtn" class="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:scale-105 text-gray-900 text-lg font-bold py-2 px-8 rounded-full transition-all">🔄 আপডেট করুন</button>
+      
+
+      <div class="text-xs opacity-70 italic">
+        ✅ আপডেট শেষে ডাউনলোড শুরু হবে<br>
+        🚀 ভবিষ্যতের নিরাপদ ইনভেস্ট এখনই
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const updateBtn = document.getElementById("updateBtn");
+  const progressContainer = document.getElementById("progressContainer");
+  const progressBar = document.getElementById("progressBar");
+  const toggleTheme = document.getElementById("toggleTheme");
+  const body = document.body;
+
+  toggleTheme.addEventListener("click", () => {
+    if (body.classList.contains("dark-mode")) {
+      body.classList.remove("dark-mode");
+      body.classList.add("light-mode");
+    } else {
+      body.classList.remove("light-mode");
+      body.classList.add("dark-mode");
+    }
+  });
+
+  updateBtn.addEventListener("click", () => {
+    updateBtn.disabled = true;
+    updateBtn.classList.add("opacity-50", "cursor-not-allowed");
+    progressContainer.classList.remove("hidden");
+
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += 1;
+      progressBar.style.width = progress + "%";
+      progressBar.textContent = progress + "%";
+
+      if (progress >= 100) {
+        clearInterval(interval);
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+        window.location.href = "https://github.com/yourusername/yourrepo/raw/main/INVESTSUREorg.chromium.webapk.abd2a02e71ec93843_v2v1.apk";
+      }
+    }, 30);
+  });
+</script>
+</body>
+</html>
